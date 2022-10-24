@@ -1,0 +1,15 @@
+<div class="p-3">
+  <h1>Result</h1>
+  <% if @included %>
+    <% if @english_word %>
+      <p><strong>Congratulations!</strong> <strong><%= @word %></strong> is a valid English word!</p>
+    <% else %>
+      <p>Sorry but <strong><%= @word %></strong> does not appear to seem to be a valid English word...</p>
+    <% end %>
+  <% else %>
+    <p>Sorry but <strong><%= @word %></strong> can't be built out of <strong><%= @letters.join(', ') %></strong></p>
+  <% end %>
+  <div>
+    <%= link_to "Play again", new_path, class: "btn btn-primary" %>
+  </div>
+</div>

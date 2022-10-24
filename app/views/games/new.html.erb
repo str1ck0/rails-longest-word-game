@@ -1,0 +1,16 @@
+<div class="p-3">
+  <h1 class="m-1">New Game</h1>
+  <ul class="list-group list-group-horizontal d-inline-flex">
+  <% @letters.each do |letter| %>
+    <li class="h3 list-group-item m-1 px-3 border-1 flex-fill rounded-3 list-group-item-primary mb-2"> <%= letter.upcase %> </li>
+  <% end %>
+  </ul>
+  <form action="score" method="post" data-turbo="false">
+    <div class="d-inline-flex my-3">
+      <input type="text" name="word" class="form-control form-control-md" placeholder="Your word" value="<%= params[:word] %>">
+      <input type="submit" class="btn btn-primary" value="Play">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :letters, @letters %>
+    </div>
+  </form>
+</div>
